@@ -1,10 +1,12 @@
+<!-- Get all fields from JSON -->
 <div>
   <ul>
     <li *ngFor="let item of items | async">
-      {{item | json}}
+      {{item.NombreApp}}
     </li>
   </ul>
 </div>
+<!-- Get only one from DB -->
 
 <!-- <div>
   <h4> {{ (item | async) }}</h4>
