@@ -1,13 +1,37 @@
-<div class="container pt-5">
+<div class="container py-5">
 	<div class="row">
 		<div class="col-5">
 			<select class="custom-select" [(ngModel)]="index">
-				<option selected>Choose App</option>
-				<option value={{item.id}} *ngFor="let item of items | async">{{item.NombreApp}}</option>
+				<option *ngFor="let item of items | async" value={{item.id-1}}>{{item.Nombre}}</option>
 			</select>
+			
 		</div>
 		<div class="col-5">
-			<button (click)="onClick()">Get Info</button>
+			<button type="button" class="btn btn-primary" (click)="getInfoApp()">Ver mas...</button>
+		</div>
+	</div>
+	<div class="row pt-5" *ngIf="index">
+		<div class="col">
+			<div class="container">
+				<table class="table-bordered">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th>Criticidad</th>
+							<th>TipoDespliegue</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{apps[index].Nombre}}</td>
+							<td>{{apps[index].Descripcion}}</td>
+							<td>{{apps[index].Criticidad}}</td>
+							<td>{{apps[index].TipoDespliegue}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 	

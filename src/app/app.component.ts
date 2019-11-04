@@ -11,12 +11,20 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   index: any;
   items: Observable<any[]>;
-  // item: Observable<any>;
+  apps: any[];
+
   constructor(db: AngularFireDatabase) {
     this.items = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/data').valueChanges();
-    console.log(this.items);
+    this.apps = new Array();
+    this.items.forEach(element => {
+      this.apps = element;
+    });
   }
-  onClick() {
-    console.log(this.index);
+  getInfoApp() {
+    if (this.index == null) {
+      console.log('Fallo');
+    } else {
+      console.log(this.apps[this.index].Empresa);
+    }
   }
 }
