@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConsultAppComponent } from './consult-app/consult-app.component';
 import { ModifyAppComponent } from './modify-app/modify-app.component';
 import { CreateAppComponent } from './create-app/create-app.component';
-
+import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/reports', pathMatch: 'full'},
+  {path: 'reports', component: ReportsComponent},
   {path: 'consult', component: ConsultAppComponent},
   {path: 'modify', component: ModifyAppComponent},
   {path: 'create', component: CreateAppComponent}
-
 ];
 
 @NgModule({
@@ -17,4 +18,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ConsultAppComponent, ModifyAppComponent, CreateAppComponent];
+export const routingComponents = [ReportsComponent, ConsultAppComponent, ModifyAppComponent, CreateAppComponent];

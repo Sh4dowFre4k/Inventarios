@@ -1,40 +1,30 @@
-<div class="container py-5">
-	<div class="row">
-		<div class="col-5">
-			<select class="custom-select" [(ngModel)]="index">
-				<option *ngFor="let item of items | async" value={{item.id-1}}>{{item.Nombre}}</option>
-			</select>
-			
-		</div>
-		<div class="col-5">
-			<button type="button" class="btn btn-primary" (click)="getInfoApp()">Ver mas...</button>
-		</div>
+<link rel="shortcout icon" href="../assets/img/icon.png">
+<title>Inicio</title>
+
+<!--Nav Bar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<!--Brand-->
+	<a class="navbar-brand"><img src="../assets/img/logo.png" alt="icon.png" width="40" height="40"></a>
+	<!--Buttons-->
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="nav nav-tabs mr-auto">
+			<li class="nav-item">
+				<a class="nav-link text-dark " routerLink="/" >Inicio <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-dark"  routerLink="/consult">Consultas</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link text-dark"  routerLink="/create">Creacion</a>
+			</li>
+			<li class="nav-item">
+				<a href="" class="nav-link text-dark" routerLink="/modify">Modificación</a>
+			</li>
+		</ul>
 	</div>
-	<div class="row pt-5" *ngIf="index">
-		<div class="col">
-			<div class="container">
-				<table class="table-bordered">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Descripción</th>
-							<th>Criticidad</th>
-							<th>TipoDespliegue</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>{{apps[index].Nombre}}</td>
-							<td>{{apps[index].Descripcion}}</td>
-							<td>{{apps[index].Criticidad}}</td>
-							<td>{{apps[index].TipoDespliegue}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+</nav>
+
+<!-- Routing & Navigation -->
+<router-outlet><router-outlet>
+	<!--Shouldn't exist content here-->
 	
-</div>
-
-
