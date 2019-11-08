@@ -1,40 +1,104 @@
-<p>consult-app works!</p>
-
-<div class="container py-5">
-	<div class="row">
+<div class="container mt-4">
+	<div class="row justify-content-center text-center">
+		<div class="col-12">
+			<!--Label Select-->
+			<h4>Seleccione un Aplicativo</h4>
+		</div>
+	</div>
+	<div class="row justify-content-center">
 		<div class="col-5">
 			<select class="custom-select" [(ngModel)]="index">
 				<option *ngFor="let item of items | async" value={{item.id-1}}>{{item.Nombre}}</option>
 			</select>
-			
-		</div>
-		<div class="col-5">
-			<button type="button" class="btn btn-primary" (click)="getInfoApp()">Ver mas...</button>
 		</div>
 	</div>
-	<div class="row pt-5" *ngIf="index">
-		<div class="col">
-			<div class="container">
-				<table class="table-bordered">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Descripción</th>
-							<th>Criticidad</th>
-							<th>TipoDespliegue</th>
-						</tr>
-					</thead>
+</div>
+
+<div *ngIf="index == null" style="height: 100vh;"></div>
+
+<div class="container" *ngIf="index">
+	<div class="row mt-5">
+		<div class="col-6">
+			<h3 class="my-3 text-center">Sección de Aplicaciones</h3>
+			<div class="container d-flex justify-content-center">
+				<table class="table-bordered spacingColumn">
 					<tbody>
-						<tr>
-							<td>{{apps[index].Nombre}}</td>
+						<tr class="table-danger">
+							<td><b>Descripcion</b></td>
 							<td>{{apps[index].Descripcion}}</td>
+						</tr>
+						<tr>
+							<td><b>Criticidad</b></td>
 							<td>{{apps[index].Criticidad}}</td>
+						</tr>
+						<tr>
+							<td><b>Tipo de Despliegue</b></td>
 							<td>{{apps[index].TipoDespliegue}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
+			<div class="d-flex justify-content-center">
+				<div class="btn-group m-3" role="group">
+					<button type="button" class="btn btn-outline-danger"><fa-icon [icon]="faUserFriends"></fa-icon> Proveedores</button>
+					<button type="button" class="btn btn-outline-danger"><fa-icon [icon]="faCode"></fa-icon> Lenguajes</button>
+					<button type="button" class="btn btn-outline-danger"><fa-icon [icon]="faTimesCircle"></fa-icon> Obsolescencia</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<h3 class="text-center my-3">Sección Infraestrucutra</h3>
+			<div class="container d-flex justify-content-center">
+				<table class="table-bordered spacingColumn">
+					<tbody>
+						<tr class="table-danger">
+							<td><b>Modelo de la Maquina</b></td>
+							<td>Cisco</td>
+						</tr>
+						<tr>
+							<td><b>Fisico - Virtual</b></td>
+							<td>Virtual</td>
+						</tr>
+						<tr>
+							<td><b>Sistema Operativo</b></td>
+							<td>Windons</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button type="button" class="btn btn-outline-danger m-3">Mayor Detalle</button>
+			</div>
 		</div>
 	</div>
-	
+	<h3 class="text-center my-5">Sección Información</h3>
+	<div class="row">
+		<div class="col-8">
+			<iframe src=" https://drive.google.com/file/d/1KD563ZjiiO6qNcsK8JFFtQTXymCSAuqw/preview " width=" 700 " height=" 480 "></iframe>
+		</div>
+		<div class="col-4">
+			<div class="container d-flex justify-content-center">
+				<table class="table-bordered spacingColumn">
+					<tbody>
+						<tr class="table-danger">
+							<td><b>Info 1</b></td>
+							<td>Ej Info 1</td>
+						</tr>
+						<tr>
+							<td><b>Info 2</b></td>
+							<td>Ej Info 2</td>
+						</tr>
+						<tr>
+							<td><b>Info 3</b></td>
+							<td>Ej Info 3</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="d-flex justify-content-center">
+				<button type="button" class="btn btn-outline-danger m-4">Mayor Detalle</button>
+			</div>
+		</div>
+		<!--End colum-->
+	</div>
 </div>
