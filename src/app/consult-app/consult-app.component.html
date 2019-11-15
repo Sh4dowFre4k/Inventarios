@@ -8,8 +8,9 @@
 	<div class="row justify-content-center">
 		<div class="col-5">
 			<select class="custom-select" [(ngModel)]="index">
-				<option *ngFor="let item of items | async" value={{item.id-1}}>{{item.Nombre}}</option>
+				<option *ngFor="let item of itemsD | async" value={{item.id-1}}>{{item.Nombre}}</option>
 			</select>
+			<button (click)="aver()">Click</button>
 		</div>
 	</div>
 </div>

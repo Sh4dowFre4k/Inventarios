@@ -10,26 +10,32 @@ import { faUserFriends, faCode, faTimesCircle} from '@fortawesome/free-solid-svg
 })
 export class ConsultAppComponent implements OnInit {
   index: any;
-  items: Observable<any[]>;
+  itemsD: Observable<any[]>;
+  itemsI: Observable<any[]>;
   apps: any[];
+  infra: any[];
+  info: any[];
   faUserFriends = faUserFriends;
   faCode = faCode;
   faTimesCircle = faTimesCircle;
 
   constructor(db: AngularFireDatabase) {
-    this.items = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/data').valueChanges();
     this.apps = new Array();
-    this.items.forEach(element => {
+    this.infra = new Array();
+    this.info = new Array();
+    this.itemsD = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/data').valueChanges();
+    this.itemsI = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/infra').valueChanges();
+    this.itemsD.forEach(element => {
       this.apps = element;
     });
+    this.itemsI.forEach(element => {
+      this.infra = element;
+    });
   }
-
-  getInfoApp() {
-    if (this.index == null) {
-      console.log('Fallo');
-    } else {
-      console.log(this.apps[this.index].Empresa);
-    }
+  aver(){
+    const str = this.infra[0].Servidor;
+    const split = str.split(',');
+    console.log(this.apps[0].Nombre + ' Tiene la infra ' + str);
   }
   ngOnInit() {}
 
