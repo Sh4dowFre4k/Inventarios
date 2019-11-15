@@ -32,7 +32,7 @@ export class ConsultAppComponent implements OnInit {
       this.infra = element;
     });
   }
-  aver(){
+  aver() {
     const str = this.infra[0].Servidor;
     const split = str.split(',');
     console.log(this.apps[0].Nombre + ' Tiene la infra ' + str);
