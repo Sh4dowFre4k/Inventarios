@@ -9,34 +9,64 @@ import { faUserFriends, faCode, faTimesCircle} from '@fortawesome/free-solid-svg
   styleUrls: ['./consult-app.component.scss']
 })
 export class ConsultAppComponent implements OnInit {
+  // Indice del Selector
   index: any;
+  // Arreglo de informacion de Firebase
   itemsD: Observable<any[]>;
-  itemsI: Observable<any[]>;
+  itemsInfr: Observable<any[]>;
+  itemsInfo: Observable<any[]>;
+  // Arreglos Manipulables
   apps: any[];
   infra: any[];
   info: any[];
+  // Iconos - Quitar?
   faUserFriends = faUserFriends;
   faCode = faCode;
   faTimesCircle = faTimesCircle;
+  // Arreglos de relacion para Infraestructura
+  servidores: any;
+  ambientes: any;
+  so: any;
+  criticidad: any;
+  // Arreglos de relacion para Informacion
+  categoria: any;
+  tipoBD: any;
+  familia: any;
+  servInfra: any;
+
 
   constructor(db: AngularFireDatabase) {
     this.apps = new Array();
     this.infra = new Array();
     this.info = new Array();
     this.itemsD = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/data').valueChanges();
-    this.itemsI = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/infra').valueChanges();
+    this.itemsInfr = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/infra').valueChanges();
+    this.itemsInfo = db.list('/12bqK7Fk1EOZks6X56Xlh8pqPtpRwI84nDiM6Ye6kG5E/info').valueChanges();
+
     this.itemsD.forEach(element => {
       this.apps = element;
     });
-    this.itemsI.forEach(element => {
+    this.itemsInfr.forEach(element => {
       this.infra = element;
     });
+    this.itemsInfo.forEach(element => {
+      this.info = element;
+    });
   }
-  aver() {
-    const str = this.infra[0].Servidor;
-    const split = str.split(',');
-    console.log(this.apps[0].Nombre + ' Tiene la infra ' + str);
-  }
-  ngOnInit() {}
 
+  getII() {
+    if (this.index == null) {}
+    this.servidores = this.infra[this.index].Servidor.split(',');
+    this.ambientes = this.infra[this.index].Ambiente.split(',');
+    this.so = this.infra[this.index].FamiliaSO.split(',');
+    this.criticidad = this.infra[this.index].Criticidad.split(',');
+
+    this.categoria = this.info[this.index].Categoria.split(',');
+    this.tipoBD = this.info[this.index].TipoBD.split(',');
+    this.familia = this.info[this.index].Familia.split(',');
+    this.servInfra = this.info[this.index].ServInfra.split(',');
+
+  }
+
+  ngOnInit() {}
 }

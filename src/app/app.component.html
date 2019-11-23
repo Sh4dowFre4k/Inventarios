@@ -1,26 +1,36 @@
 <link rel="shortcout icon" href="../assets/img/icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amethysta">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
 <title>Inicio</title>
 
-<!--Nav Bar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<!--Brand-->
-	<a class="navbar-brand"><img src="../assets/img/logo.png" alt="icon.png"></a>
-	<!--Buttons-->
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="nav nav-tabs mr-auto">
-			<li class="nav-item">
-				<a class="nav-link text-dark" routerLink="/" >Inicio <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-dark" routerLink="/consult">Consultas</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link text-dark" routerLink="/create">Creacion</a>
-			</li>
-			<li class="nav-item">
-				<a href="" class="nav-link text-dark" routerLink="/modify">Modificación</a>
-			</li>
-		</ul>
+<nav class="navbar navbar-light navbar-expand-md navigation-clean" style="background-color: rgb(218,218,218);height: 100px;">
+	<div class="container">
+		<!--Brand-->
+		<a class="navbar-brand" href="#">
+			<img src="../assets/img/logo.png" style="width: 500px;">
+		</a>
+		<!--Buttons-->
+		<button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navcol-1">
+			<ul class="nav navbar-nav ml-auto" style="font-size: 20px; font-family: ABeeZee, sans-serif;">
+				<li class="nav-item" role="">
+					<a class="nav-link" routerLink="/">Inicio</a>
+				</li>
+				<li class="nav-item" role="">
+					<a class="nav-link" routerLink="/consult">Consultas</a>
+				</li>
+				<li class="nav-item" role="">
+					<a class="nav-link" routerLink="/create">Crear</a>
+				</li>
+				<li class="nav-item" role="">
+					<a class="nav-link" routerLink="/modify">Modificar</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </nav>
 
@@ -28,8 +38,15 @@
 <router-outlet></router-outlet>
 <!--Shouldn't exist content here-->
 
-<div class="container-fluid bg-secondary foo">
-	<div class="d-flex align-content-center py-2">
-		© Banco Davivienda S.A | Departamento de Arquitetura Empresarial 2019
+<div style="background-color: #dddddd;">
+	<div class="container">
+		<div class="row d-xl-flex">
+			<div class="col-md-6 d-xl-flex justify-content-xl-center">
+				<p class="text-center d-xl-flex" style="margin-top: 15px;font-size: 20px;">Departamento de Arquitetura Empresarial 2019<br></p>
+			</div>
+			<div class="col-md-6 d-xl-flex justify-content-xl-center">
+				<p style="margin-top: 15px;font-size: 20px;">© Banco Davivienda S.A</p>
+			</div>
+		</div>
 	</div>
 </div>
