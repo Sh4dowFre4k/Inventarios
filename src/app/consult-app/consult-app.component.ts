@@ -11,6 +11,9 @@ import { faUserFriends, faCode, faTimesCircle} from '@fortawesome/free-solid-svg
 export class ConsultAppComponent implements OnInit {
   // Indice del Selector
   index: any;
+  // Valor para el div
+  indexBtn: any = 0;
+  indexBtnI: any = 0;
   // Arreglo de informacion de Firebase
   itemsD: Observable<any[]>;
   itemsInfr: Observable<any[]>;
@@ -28,6 +31,7 @@ export class ConsultAppComponent implements OnInit {
   ambientes: any;
   so: any;
   criticidad: any;
+  tipoSrv: any;
   // Arreglos de relacion para Informacion
   categoria: any;
   tipoBD: any;
@@ -60,6 +64,7 @@ export class ConsultAppComponent implements OnInit {
     this.ambientes = this.infra[this.index].Ambiente.split(',');
     this.so = this.infra[this.index].FamiliaSO.split(',');
     this.criticidad = this.infra[this.index].Criticidad.split(',');
+    this.tipoSrv = this.infra[this.index].FisicoVirtual.split(',');
 
     this.categoria = this.info[this.index].Categoria.split(',');
     this.tipoBD = this.info[this.index].TipoBD.split(',');
@@ -68,5 +73,7 @@ export class ConsultAppComponent implements OnInit {
 
   }
 
+  pdiv() {
+  }
   ngOnInit() {}
 }
