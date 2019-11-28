@@ -13,7 +13,7 @@ export class ConsultAppComponent implements OnInit {
   index: any;
   // Valor para el div
   indexBtn: any = 0;
-  indexBtnI: any = 0;
+  indexBtnI: any = 1;
   // Arreglo de informacion de Firebase
   itemsD: Observable<any[]>;
   itemsInfr: Observable<any[]>;
@@ -29,9 +29,13 @@ export class ConsultAppComponent implements OnInit {
   // Arreglos de relacion para Infraestructura
   servidores: any;
   ambientes: any;
-  so: any;
+  fso: any;
   criticidad: any;
   tipoSrv: any;
+  so: any;
+  obsso: any;
+  modelo: any;
+  arquitectura: any;
   // Arreglos de relacion para Informacion
   categoria: any;
   tipoBD: any;
@@ -62,9 +66,13 @@ export class ConsultAppComponent implements OnInit {
     if (this.index == null) {}
     this.servidores = this.infra[this.index].Servidor.split(',');
     this.ambientes = this.infra[this.index].Ambiente.split(',');
-    this.so = this.infra[this.index].FamiliaSO.split(',');
+    this.fso = this.infra[this.index].FamiliaSO.split(',');
     this.criticidad = this.infra[this.index].Criticidad.split(',');
     this.tipoSrv = this.infra[this.index].FisicoVirtual.split(',');
+    this.so = this.infra[this.index].SO.split(',');
+    this.obsso = this.infra[this.index].ObsSO.split(',');
+    this.modelo = this.infra[this.index].ModeloMaquina.split(',');
+    this.arquitectura = this.infra[this.index].ArquitecturaP.split(',');
 
     this.categoria = this.info[this.index].Categoria.split(',');
     this.tipoBD = this.info[this.index].TipoBD.split(',');
